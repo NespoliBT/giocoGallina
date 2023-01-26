@@ -34,7 +34,7 @@ const frasi = [
     "Perché i vecchi usano i puntini di sospensione...?",
     "Meglio un the al limone che un limone con te.",
     "Meglio un the al limone che un the con te.",
-    "Un magliale cade dal balcone: - Speck",
+    "Un maiale cade dal balcone: - Speck",
     "Io vado a fumarmi una canna, comunque.",
     "Luca Motto figlio del risotto.",
     "Le bombe nelle bombe le mettono le bombe, le pagano le bombe, bombe.",
