@@ -52,6 +52,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const rightControl = document.getElementById("right");
     const leftControl = document.getElementById("left");
 
+    let isMoving = false;
+
     let points = 0;
     let chickenX = 50;
     let chickenY = 250;
@@ -175,6 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // get touch on controls (mobile)
     rightControl.addEventListener('touchstart', function (e) {
+        clearInterval(movingInterval);
         movingInterval = setInterval(() => {
             moveChicken(10);
         }, 50);
