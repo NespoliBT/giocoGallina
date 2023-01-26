@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let movingInterval = null;
 
-    canvas.addEventListener('mousedown', function (e) {
+    canvas.addEventListener('touchstart', function (e) {
         const { x, y } = getCursorPosition(canvas, e)
         if (x > 375 && x < 475 && y > 500 && y < 700) {
             movingInterval = setInterval(() => {
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     })
 
-    canvas.addEventListener('mouseup', function (e) {
+    canvas.addEventListener('touchend', function (e) {
         clearInterval(movingInterval);
     })
 
