@@ -3,10 +3,27 @@
     margin: 0;
 }
 
+
 canvas {
     background: #eee;
     display: block;
     margin: 0 auto;
+    width: 100%;
+}
+
+.controls {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    top: 443px;
+    gap: 70px;
+
+
+    .control {
+        height: 100px;
+        width: 100px;
+    }
 }
 
 @font-face {

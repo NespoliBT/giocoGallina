@@ -9,6 +9,8 @@ const frasi = [
 document.addEventListener('DOMContentLoaded', function () {
     const canvas = document.getElementById("myCanvas");
     const ctx = canvas.getContext("2d")
+    const rightControl = document.getElementById("right");
+    const leftControl = document.getElementById("left");
 
     let points = 0;
     let chickenX = 50;
@@ -149,21 +151,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let movingInterval = null;
 
-    canvas.addEventListener('touchstart', function (e) {
-        const { x, y } = getCursorPosition(canvas, e)
-        if (x > 375 && x < 475 && y > 500 && y < 700) {
-            movingInterval = setInterval(() => {
-                moveChicken(10);
-            }, 50);
-        }
-        if (x > 75 && x < 175 && y > 500 && y < 700) {
-            movingInterval = setInterval(() => {
-                moveChicken(-10);
-            }, 50);
-        }
+    // get touch on controls (mobile)
+    rightControl.addEventListener('touchstart', function (e) {
+        movingInterval = setInterval(() => {
+            moveChicken(10);
+        }, 50);
     })
 
-    canvas.addEventListener('touchend', function (e) {
+    rightControl.addEventListener('touchend', function (e) {
+        clearInterval(movingInterval);
+    })
+
+    leftControl.addEventListener('touchstart', function (e) {
+        movingInterval = setInterval(() => {
+            moveChicken(-10);
+        }, 50);
+    })
+
+    leftControl.addEventListener('touchend', function (e) {
         clearInterval(movingInterval);
     })
 

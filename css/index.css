@@ -5,7 +5,19 @@
 canvas {
   background: #eee;
   display: block;
-  margin: 0 auto; }
+  margin: 0 auto;
+  width: 100%; }
+
+.controls {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  top: 443px;
+  gap: 70px; }
+  .controls .control {
+    height: 100px;
+    width: 100px; }
 
 @font-face {
   font-family: 'NerdFont';
