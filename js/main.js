@@ -1,9 +1,49 @@
 
 const frasi = [
-    "Ricordati di idratare la tua gallina",
-    "La vita ci rende come noci, duri fuori e strani dentro",
-    "La statistica spesso afferma",
-    "La vita è un pendolo che oscilla tra noia e dolore"
+    "Ricordati di idratare la tua gallina.",
+    "La vita ci rende come noci, duri fuori e strani dentro.",
+    "La statistica spesso afferma.",
+    "La vita è un pendolo che oscilla tra noia e dolore.",
+    "20 centesimi non erano abbastanza?",
+    "A volte la vita è come un uovo.",
+    "La vita è come un uovo.",
+    "La vita è troppo breve per essere piccoli.",
+    "Nella gallina piccola c'è l'uovo d'oro.",
+    "Olindo e Rosa innocenti: liberi subito.",
+    "Non tutti sanno che la gallina è venuta prima dell'uovo.",
+    "Rispetta la galline.",
+    "Ricorda, se guardi la gallina perdi.",
+    "La gallina cova con amore, noi dovremmo fare lo stesso.",
+    "La vita è bella, cit.",
+    "Molti giovani sono come fiumi in perenne piena, sono sempre fuoricorso.",
+    "Tutte le galline sono uguali, alcune piu uguali delle altre.",
+    "A volte mi perdo pensando tra un uovo e l'altro.",
+    "Uovo d'oro, pomodoro, sono solo, yoko ono.",
+    "Non dire gallina finchè non ce l'hai nel sacco.",
+    "Si sta come a gennaio in sessione gli studenti e le galline.",
+    "Si sta come di giorno in pollaio le galline.",
+    "Coccodè!",
+    "L'ambientalismo senza lotta di classe è solo giardinaggio.",
+    "Era meglio la monarchia che bastava ammazzarne uno.",
+    "Tanto va la gallina al lardo che ci lascia lo zio pino.",
+    "Belin che bell'uovo.",
+    "Abbassa quella voce da gallina.",
+    "Ti chiudo nel pollaio.",
+    "Il gioco.",
+    "Meglio una gallina oggi che pisano alla porta tra un ora.",
+    "Perché i vecchi usano i puntini di sospensione...?",
+    "Meglio un the al limone che un limone con te",
+    "Meglio un the al limone che un the con te",
+    "Un magliale cade dal balcone: - Speck",
+    "Io vado a fumarmi una canna, comunque",
+    "Luca Motto figlio del risotto",
+    "Le bombe nelle bombe le mettono le bombe, le pagano le bombe, bombe",
+    "Anche i pulcini con gli accendini vanno a bruciare cantù",
+    "Il mio cane è un cane",
+    "(x^2 + (9/4)*(y^2) + z^2 -1)^3 - (x^2)*(z^3) -(9/200)*(y^2)*(z^3)",
+    "Se telefonando io potessi dirti coccodè",
+    "Baby ritorna da me e metti via quel motorola",
+    "Baby ritorna da me e metti via la tagliola",
 ];
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -85,23 +125,6 @@ document.addEventListener('DOMContentLoaded', function () {
         ctx.fillText(`Punteggio: ${points}`, 16, 38);
     }
 
-    function drawControls() {
-        ctx.font = "48px NerdFont";
-        ctx.fillStyle = "#000000";
-        ctx.fillText("", 375, 650);
-        ctx.fillText("", 75, 650);
-
-        // draw circles around controls
-        ctx.beginPath();
-        ctx.arc(393, 630, 50, 0, 2 * Math.PI);
-        ctx.stroke();
-
-        ctx.beginPath();
-        ctx.arc(93, 630, 50, 0, 2 * Math.PI);
-        ctx.stroke();
-
-    }
-
     function drawBubble() {
         ctx.drawImage(bubble, 0, 320, 480, 214);
     }
@@ -132,7 +155,6 @@ document.addEventListener('DOMContentLoaded', function () {
         drawUovo();
         drawPunteggio();
 
-        drawControls();
         drawBubble();
         drawText();
 
@@ -162,7 +184,12 @@ document.addEventListener('DOMContentLoaded', function () {
         clearInterval(movingInterval);
     })
 
+    rightControl.addEventListener('touchmove', function (e) {
+        clearInterval(movingInterval);
+    })
+
     leftControl.addEventListener('touchstart', function (e) {
+        clearInterval(movingInterval);
         movingInterval = setInterval(() => {
             moveChicken(-10);
         }, 50);
@@ -172,7 +199,15 @@ document.addEventListener('DOMContentLoaded', function () {
         clearInterval(movingInterval);
     })
 
-    setInterval(draw, 10);
+    leftControl.addEventListener('touchmove', function (e) {
+        clearInterval(movingInterval);
+    })
+
+
+    setTimeout(() => {
+        setInterval(draw, 10);
+    }, 1000);
+
     setInterval(() => {
         const previousFrase = frase;
         while (previousFrase === frase) {

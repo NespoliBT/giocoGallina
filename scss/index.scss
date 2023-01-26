@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    user-select: none;
 }
 
 
@@ -11,18 +12,29 @@ canvas {
     width: 100%;
 }
 
+body,
+html {
+    height: 100%;
+    width: 100%;
+    background: #eee;
+}
+
 .controls {
-    position: absolute;
     width: 100%;
     display: flex;
     justify-content: space-around;
-    top: 443px;
     gap: 70px;
+    margin-top: 50px;
 
 
     .control {
-        height: 100px;
-        width: 100px;
+        height: 130px;
+        width: 130px;
+        font-size: 72px;
+        font-family: NerdFont;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
