@@ -4,7 +4,7 @@
   user-select: none; }
 
 canvas {
-  background: #eee;
+  background: #456a2a;
   display: block;
   margin: 0 auto;
   width: 100%; }
@@ -13,7 +13,7 @@ body,
 html {
   height: 100%;
   width: 100%;
-  background: #eee; }
+  background: #456a2a; }
 
 .controls {
   width: 100%;
