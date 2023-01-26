@@ -1,0 +1,12 @@
+{
+  "name": "giocoGallina",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "watchscss": "node-sass -w scss -o css"
+  },
+  "dependencies": {
+    "node-sass": "^8.0.0"
+  }
+}
