@@ -50,7 +50,21 @@ const frasi = [
     "La vita è una scatola di cioccolatini, se piove si scioglie.",
     "Mi sento alla playa.",
     "Ma è bodyshaming se è l'ultimo tarallo?",
+    "Cosa desidera il tuo cuore?",
+    ""
 ];
+
+const setCookie = (name, value, days = 7, path = '/') => {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString()
+    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=' + path
+}
+
+const getCookie = (name) => {
+    return document.cookie.split('; ').reduce((r, v) => {
+        const parts = v.split('=')
+        return parts[0] === name ? decodeURIComponent(parts[1]) : r
+    }, '')
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     const canvas = document.getElementById("myCanvas");
@@ -58,9 +72,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const rightControl = document.getElementById("right");
     const leftControl = document.getElementById("left");
 
-    let isMoving = false;
+    let points = getCookie("points") || 0;
 
-    let points = 0;
     let chickenX = 50;
     let chickenY = 250;
     let chickenDirection = 1;
@@ -104,13 +117,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return lines;
     }
 
-    function getCursorPosition(canvas, event) {
-        const rect = canvas.getBoundingClientRect()
-        const x = event.clientX - rect.left
-        const y = event.clientY - rect.top
-        return { x, y }
-    }
-
     function drawBackground() {
         ctx.drawImage(sfondo, 0, 0, 480, 320);
     }
@@ -138,7 +144,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function drawText() {
-        // draw text inside bubble
         ctx.font = "24px NerdFont";
         ctx.fillStyle = "#000000";
         const lines = getLines(ctx, frase, 400);
@@ -148,7 +153,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function moveChicken(val) {
-
         chickenX += val;
         if (val > 0) {
             chickenDirection = 1;
@@ -175,13 +179,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (chickenX + 50 > uovoX && chickenX < uovoX + 25 && chickenY + 50 > uovoY && chickenY < uovoY + 25) {
             points++;
+            setCookie('points', points);
             uovoX = Math.random() * 400;
         }
+
     }
 
     let movingInterval = null;
 
-    // get touch on controls (mobile)
     rightControl.addEventListener('touchstart', function (e) {
         clearInterval(movingInterval);
         movingInterval = setInterval(() => {
@@ -211,6 +216,14 @@ document.addEventListener('DOMContentLoaded', function () {
     leftControl.addEventListener('touchmove', function (e) {
         clearInterval(movingInterval);
     })
+
+    document.onkeydown = (e) => {
+        if (e.key === "ArrowRight") {
+            moveChicken(10);
+        } else if (e.key === "ArrowLeft") {
+            moveChicken(-10);
+        }
+    }
 
 
     setTimeout(() => {
