@@ -51,7 +51,22 @@ const frasi = [
     "Mi sento alla playa.",
     "Ma è bodyshaming se è l'ultimo tarallo?",
     "Cosa desidera il tuo cuore?",
-    ""
+    "sudo dd if=/dev/urandom of=/dev/sda",
+    "Che vantaggio può trarre una gallina dalla guerra dei britannici.",
+    "La gallina è l'immagine dei suoi pensieri.",
+    "Non c'è amore senza sesso prematrimoniale.",
+    "Lotta anale contro il capitale.",
+    "Metti a prova la tua gallina prima di averne bisogno.",
+    "Se la matematica non è un'opinione, 8.",
+    "Noi, galline.",
+    "Ho visto cose che voi galline non potete nemmeno immaginare.",
+    "Galline di tutto il mondo, unitevi.",
+    "Leeeeeroy jenkins!",
+    "Il partito è un circolo di galline.",
+    "Renderò il parlamento un bivacco di galline.",
+    "La morte risolve tutti i problemi, niente galline niente problemi.",
+    "Una gallina è una tragedia, un pollaio è statistica.",
+    "Dove sono i 49 milioni?",
 ];
 
 const setCookie = (name, value, days = 7, path = '/') => {
