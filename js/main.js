@@ -1,5 +1,5 @@
 
-const frasi = [
+const sentences = [
     "Ricordati di idratare la tua gallina.",
     "La vita ci rende come noci, duri fuori e strani dentro.",
     "La statistica spesso afferma.",
@@ -38,8 +38,7 @@ const frasi = [
     "Io vado a fumarmi una canna, comunque.",
     "Luca Motto figlio del risotto.",
     "Le bombe nelle bombe le mettono le bombe, le pagano le bombe, bombe.",
-    "Anche i pulcini con gli accendini vanno a bruciare cantù.",
-    "Il mio cane è un cane.",
+    "Anche i pulcini con gli accendini vanno a bruciare Cantù.",
     "(x^2 + (9/4)*(y^2) + z^2 -1)^3 - (x^2)*(z^3) -(9/200)*(y^2)*(z^3)",
     "Se telefonando io potessi dirti coccodè.",
     "Baby ritorna da me e metti via quel motorola.",
@@ -67,7 +66,48 @@ const frasi = [
     "La morte risolve tutti i problemi, niente galline niente problemi.",
     "Una gallina è una tragedia, un pollaio è statistica.",
     "Dove sono i 49 milioni?",
+    "Alle volte le persone inciampano nella verità, allora *$?!#",
+    "Il mattino ha l'uovo in bocca",
+    "La vita è uno stato mentale.",
+    "Never gonna give you up, never gonna let you down.",
+    "Secondo le leggi della fisica, un'ape non potrebbe volare.",
+    "Fuori dal mio pollaio.",
+    "Rimandiamo indietro i marò",
+    "Un bambino cade, si sbuccia il ginocchio e se lo mangia.",
+    "Scemo chi legge.",
+    "Silvio.",
+    "Chiccirichi di fantasia.",
+    "Ieri ho confuso il tofu con il tufo, non ho più i denti.",
+    "Piuttosto che niente è meglio piuttosto.",
+    "Nono comandamento: Non desiderare la gallina altrui.",
+    "Ciapa la galena, coccodè.",
+    "Sono tutt'uno con la FIOM, la FIOM è con me.",
+    "80 voglia di FIOM",
+    "È finita ho l'highground.",
+    "Gallina, fai colazione che ceneremo all'inferno.",
+    "Manda frasi a @Nespoli su telegram.",
+    "la tua famiglia ti sta aspettando, sono 10 anni che sei in coma.",
+    "Il coltello fa il taglio, non il sottoscritto.",
+    "I do not wish to be horny anymore.",
+    "Don't be sorry be better.",
+    "Cosa abbiamo da perdere se non le nostre galline.",
+    "Dov'eri il 15 aprile 1989?",
+    "Tailung meritava di meglio.",
+    "Chi sporca la lavagna muore ma chi si ribella vive per sempre.",
+    "Femminismo liberale servo del capitale",
+    "Belloli grande statista.",
+    "Sorelle Belloli.",
+    "Meno Salvini più galline.",
 ];
+
+const fixedSentences = {
+    10: [
+        "Un uovo per domarli",
+        "Un uovo per trovarli",
+        "Un uovo per sedurli",
+        "Un uovo per ghermirli e nel pollaio incatenarli"
+    ]
+}
 
 const setCookie = (name, value, days = 7, path = '/') => {
     const expires = new Date(Date.now() + days * 864e5).toUTCString()
@@ -96,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let uovoX = 400;
     let uovoY = 275;
 
-    let frase = frasi[Math.floor(Math.random() * frasi.length)];
+    let selectedSentence = sentences[Math.floor(Math.random() * sentences.length)];
 
     const gallina = new Image();
     gallina.src = "assets/gallina.png";
@@ -161,7 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function drawText() {
         ctx.font = "24px NerdFont";
         ctx.fillStyle = "#000000";
-        const lines = getLines(ctx, frase, 400);
+        const lines = getLines(ctx, selectedSentence, 400);
         lines.forEach((line, index) => {
             ctx.fillText(line, 50, 415 + (index * 30));
         });
@@ -246,9 +286,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 1000);
 
     setInterval(() => {
-        const previousFrase = frase;
-        while (previousFrase === frase) {
-            frase = frasi[Math.floor(Math.random() * frasi.length)];
+        const previousSentence = selectedSentence;
+        while (previousSentence === selectedSentence) {
+            selectedSentence = sentences[Math.floor(Math.random() * sentences.length)];
         }
     }, 5000);
 });
