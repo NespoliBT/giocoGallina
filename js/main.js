@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function () {
         chicken.draw();
         egg.draw();
 
-        console.log(selectedSentence);
         drawBubble();
         drawText(ctx, selectedSentence, 50, 415, 400, 24);
         drawText(ctx, `Punteggio: ${points}`, 16, 38, 700, 32);
@@ -109,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setInterval(() => {
         if (!loreActive)
-            // TODO qui bisognerebbe mettere la logica per scegliere tra frasi random e frasi fixed da lore
             selectedSentence = getSentence();
         else {
             if (loreIndex < selectedLore.length - 1) {
