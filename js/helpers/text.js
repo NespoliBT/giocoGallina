@@ -17,9 +17,9 @@ function getLines(ctx, text, maxWidth) {
     return lines;
 }
 
-function drawText(ctx, text, x, y, maxWidth, size = 40) {
+function drawText(ctx, text, x, y, maxWidth, size = 40, color = "black") {
     ctx.font = `${size}px NerdFont`;
-    ctx.fillStyle = "black";
+    ctx.fillStyle = color;
     const lines = getLines(ctx, text, maxWidth);
     lines.forEach((line, index) => {
         ctx.fillText(line, x, y + (index * 30));

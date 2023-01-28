@@ -102,4 +102,6 @@ export const sentences = [
     "La vita è l'arte dell'incontro.",
     "Balla che ti passa.",
     "Le lasagne sono tiramisù salati.",
+    "Più cartoni meno meloni.",
+    "Rotola come un uovo verso il limite."
 ];
