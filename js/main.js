@@ -43,7 +43,7 @@ const sentences = [
     "Se telefonando io potessi dirti coccodè.",
     "Baby ritorna da me e metti via quel motorola.",
     "Baby ritorna da me e metti via la tagliola.",
-    "La via è un biscotto, ma se piove si scioglie.",
+    "La vita è un biscotto, ma se piove si scioglie.",
     "Se questo è un uovo",
     "La sera coccodè, la mattina chicchirichi.",
     "La vita è una scatola di cioccolatini, se piove si scioglie.",
