@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
             drawText(ctx, selectedSentence, 50, 415, 400, 24, loreActive ? "blue" : "black");
             drawText(ctx, `Punteggio: ${points}`, 16, 38, 700, 32);
 
-            console.log(still, graphicLoreStep)
             if (graphicLoreStep == 4) {
                 selectedSentence = "Hai vinto, sei felice?"
                 egg.x = 1000;
