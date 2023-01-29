@@ -34,7 +34,7 @@ class Chicken {
         } else {
             ctx.drawImage(imgFlip, x, y, 50, 50);
         }
-        console.log(this.isFree);
+
         if (this.isFree) return;
         if (this.x > 430) {
             this.x = 430;
