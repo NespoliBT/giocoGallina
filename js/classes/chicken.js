@@ -5,6 +5,7 @@ class Chicken {
         this.x = x;
         this.y = y;
         this.direction = direction;
+        this.isFree = false;
 
         const img = new Image();
         img.src = "assets/gallina.png";
@@ -17,11 +18,6 @@ class Chicken {
 
         //check boundaries
         setInterval(() => {
-            if (this.x > 430) {
-                this.x = 430;
-            } else if (this.x < 0) {
-                this.x = 0;
-            }
         }, 10);
     }
 
@@ -38,6 +34,13 @@ class Chicken {
         } else {
             ctx.drawImage(imgFlip, x, y, 50, 50);
         }
+        console.log(this.isFree);
+        if (this.isFree) return;
+        if (this.x > 430) {
+            this.x = 430;
+        } else if (this.x < 0) {
+            this.x = 0;
+        }
     }
 
     move(val) {
@@ -47,6 +50,10 @@ class Chicken {
         } else {
             this.direction = -1;
         }
+    }
+
+    setFree() {
+        this.isFree = true;
     }
 }
 

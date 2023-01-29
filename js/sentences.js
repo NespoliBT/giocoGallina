@@ -10,7 +10,6 @@ export const sentences = [
     "La vita è troppo breve per essere piccoli.",
     "Nella gallina piccola c'è l'uovo d'oro.",
     "Olindo e Rosa innocenti: liberi subito.",
-    "Non tutti sanno che la gallina è venuta prima dell'uovo.",
     "Rispetta la galline.",
     "Ricorda, se guardi la gallina perdi.",
     "La gallina cova con amore, noi dovremmo fare lo stesso.",
@@ -92,7 +91,7 @@ export const sentences = [
     "Don't be sorry be better.",
     "Cosa abbiamo da perdere se non le nostre galline.",
     "Dov'eri il 15 aprile 1989?",
-    "Tailung meritava di meglio.",
+    "Tai lung meritava di meglio.",
     "Chi sporca la lavagna muore ma chi si ribella vive per sempre.",
     "Femminismo liberale servo del capitale",
     "Belloli grande statista.",
@@ -103,5 +102,6 @@ export const sentences = [
     "Balla che ti passa.",
     "Le lasagne sono tiramisù salati.",
     "Più cartoni meno meloni.",
-    "Rotola come un uovo verso il limite."
+    "Rotola come un uovo verso il limite.",
+    "Lotta dura con la verdura.",
 ];

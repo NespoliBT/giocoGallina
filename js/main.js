@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let loreSteps = Object.keys(fixedSentences);
 
     let graphicLore = false;
+    let graphicLoreStep = getCookie("graphicLoreStep") || 0;
 
     const chicken = new Chicken(ctx, 0, 250, 1);
     const egg = new Egg(ctx, 400, 275);
@@ -23,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let selectedSentence = getSentence();
     let selectedLore = null;
     let loreIndex = 0;
+
+    let still = 0;
 
     const background = new Image();
     background.src = "assets/sfondo.jpeg";
@@ -42,7 +45,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function draw() {
         if (graphicLore) {
-            graphicLore = lore(ctx, 1);
+            document.body.style.filter = `hue-rotate(0deg)`;
+            graphicLore = lore(ctx, graphicLoreStep);
+
+            if (graphicLoreStep === 3) {
+                still = 0;
+            }
+
         }
         else {
             drawBackground();
@@ -51,7 +60,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
             drawBubble();
             drawText(ctx, selectedSentence, 50, 415, 400, 24, loreActive ? "blue" : "black");
-            drawText(ctx, `Uova: ${points}`, 16, 38, 700, 32);
+            drawText(ctx, `Punteggio: ${points}`, 16, 38, 700, 32);
+
+            console.log(still, graphicLoreStep)
+            if (graphicLoreStep == 4) {
+                selectedSentence = "Hai vinto, sei felice?"
+                egg.x = 1000;
+                chicken.x = 50;
+            }
+
+            if (points > 250 && still >= 2000 && graphicLoreStep < 3) {
+                graphicLore = true;
+                graphicLoreStep = 3;
+                setCookie('graphicLoreStep', graphicLoreStep);
+            }
+
+            if (graphicLoreStep > 2) {
+                chicken.setFree();
+            }
+
+            if ((chicken.x > 480 || chicken.x < -50) && graphicLoreStep == 3) {
+                graphicLore = true;
+                graphicLoreStep = 4;
+                setCookie('graphicLoreStep', graphicLoreStep);
+            }
+
+            still += 10;
 
             if (chicken.x + 50 > egg.x &&
                 chicken.x < egg.x + 25 &&
@@ -60,7 +94,16 @@ document.addEventListener('DOMContentLoaded', function () {
             ) {
                 points++;
                 setCookie('points', points);
-                egg.x = Math.random() * 400;
+                setCookie('graphicLoreStep', graphicLoreStep);
+
+                let newEggX = Math.floor(Math.random() * 400);
+                let oldEggX = egg.x;
+                egg.x = 500;
+
+                while (Math.abs(newEggX - oldEggX) < 100 && newEggX < 400) {
+                    newEggX = Math.floor(Math.random() * 400);
+                }
+                egg.x = newEggX;
 
                 if (loreSteps.includes(points.toString())) {
                     loreActive = true;
@@ -72,8 +115,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (points === 100) {
                     graphicLore = true;
+                    graphicLoreStep = 1;
+                }
+                if (points === 200) {
+                    graphicLore = true;
+                    graphicLoreStep = 2;
                 }
             }
+
         }
     }
 
@@ -81,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     rightControl.addEventListener('touchstart', function (e) {
         clearInterval(movingInterval);
+        still = 0;
         movingInterval = setInterval(() => {
             chicken.move(10);
         }, 50);
@@ -96,6 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     leftControl.addEventListener('touchstart', function (e) {
         clearInterval(movingInterval);
+        still = 0;
         movingInterval = setInterval(() => {
             chicken.move(-10);
         }, 50);
@@ -111,8 +162,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.onkeydown = (e) => {
         if (e.key === "ArrowRight") {
+            still = 0;
             chicken.move(10);
         } else if (e.key === "ArrowLeft") {
+            still = 0;
             chicken.move(-10);
         }
     }
@@ -122,9 +175,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 1000);
 
     setInterval(() => {
-        if (!loreActive)
+        if (!loreActive && graphicLoreStep < 3)
             selectedSentence = getSentence();
-        else {
+        else if (loreActive) {
             if (loreIndex < selectedLore.length - 1) {
                 loreIndex++;
                 selectedSentence = selectedLore[loreIndex];

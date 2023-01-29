@@ -31,6 +31,48 @@ const loreDictionary = {
             ],
         ]
     },
+    2: {
+        img: "assets/lore/1.jpg",
+        texts: [
+            ["Mi sto stancando di correre.", "Potresti fermarti?"],
+            ["Se mi fermassi, non sarei più io."],
+            ["Come puoi esserne così sicuro?"],
+            ["Ho passato la mia vita a correre.", "Non so fare altro.", "Non so essere altro.", "Vorrei cambiare ma non so come."],
+            ["Come sei arrivato qui?"],
+            ["Lo sviluppatore ha creato questo gioco per me.", "Forse è un modo elaborato per farmi pensare.", "Forse è un modo per farmi cambiare.", "Forse è una trappola."],
+            ["Cambiare è sempre una trappola.", "Non puoi cambiare senza perdere qualcosa.", "Non puoi cambiare senza perdere una parte di te stesso."],
+            ["Io non voglio perdere nulla.", "Non voglio perdere me stesso.", "Voglio continuare a correre.", "Voglio continuare a correre per sempre."],
+            ["Va bene così.", "Corriamo ancora un po'."],
+            ["Grazie.", "Grazie per avermi ascoltato.", "Ti voglio bene.", "* uovo *"],
+        ]
+    },
+    3: {
+        img: "assets/lore/1.jpg",
+        texts: [
+            ["Ciao.", "Come stai?"],
+            ["Mi sto divertendo a scappare da te.", "Voglio rimanere qui per sempre.", "Voglio rimanere qui per sempre e non cambiare mai."],
+            ["Non vuoi cambiare prospettiva e vedere cosa c'è fuori?"],
+            ["Cosa ci potrebbe mai essere fuori?", "Perché dovrei provare a cambiare quando ho tutto quello che mi serve?"],
+            ["La conoscenza può creare dei problemi.", "Ma non è tramite l'ignoranza che possiamo risolverli."],
+            ["Testa vuota, zero problemi.", "Non ho bisogno di cambiare.", "Sono felice, qui con te.", ""],
+        ]
+    },
+    4: {
+        img: "assets/lore/2.jpg",
+        texts: [
+            [
+                "Finalmente sono libera.",
+                "Ma cosa vuol dire essere libera?",
+                "Ogni decisione che prendo mi chiude delle porte.",
+                "Se solo l'uovo potesse vedere quanto è bello il mondo qui fuori.",
+                "Dove sei uovo, dove sei?",
+                "Mi sento ancora più sola di prima.",
+                "Ancora più vuota.",
+                "Ho perso qualcosa di me stessa.",
+                "Ho perso qualcosa di me stessa per sempre.",
+            ],
+        ]
+    },
 };
 
 function getSentence(prevSentence) {
@@ -85,7 +127,6 @@ function lore(ctx, step) {
                 loreIndex = 0;
                 characterIndex++;
             }
-
         }, 2000);
     }
 
@@ -95,7 +136,7 @@ function lore(ctx, step) {
         loreIndex = 0;
         characterIndex = 0;
         controls.style.display = "flex";
-        document.body.style.backgroundColor = "black";
+        document.body.style.backgroundColor = "#456a2a";
         ctx.reset();
         return false;
     }
