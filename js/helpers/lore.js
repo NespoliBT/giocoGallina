@@ -5,6 +5,8 @@ let loreStarted = false;
 let loreIndex = 0;
 let characterIndex = 0;
 let loreInterval = null;
+let img = null;
+let texts = null;
 
 const loreDictionary = {
     1: {
@@ -86,7 +88,8 @@ function getSentence(prevSentence) {
 }
 
 function lore(ctx, step) {
-    const { img, texts } = loreDictionary[step];
+    img = loreDictionary[step]["img"];
+    texts = loreDictionary[step]["texts"];
 
     const controls = document.querySelector(".controls");
     document.body.style.backgroundColor = "white";
@@ -119,15 +122,6 @@ function lore(ctx, step) {
 
     if (!loreStarted) {
         loreStarted = true;
-        loreInterval = setInterval(() => {
-            if (loreIndex < texts[characterIndex].length - 1) {
-                loreIndex++;
-            }
-            else {
-                loreIndex = 0;
-                characterIndex++;
-            }
-        }, 2000);
     }
 
     if (characterIndex === texts.length - 1 && loreIndex === texts[characterIndex].length - 1) {
@@ -143,5 +137,18 @@ function lore(ctx, step) {
 
     return true;
 }
+
+document.body.addEventListener("click", () => {
+    if (loreStarted) {
+        if (loreIndex < texts[characterIndex].length - 1) {
+            loreIndex++;
+        }
+        else {
+            loreIndex = 0;
+            characterIndex++;
+        }
+        console.log(loreIndex, characterIndex)
+    }
+});
 
 export { getSentence, lore };
