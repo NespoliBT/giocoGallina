@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (graphicLoreStep == 4) {
                 selectedSentence = "Hai vinto, sei felice?"
                 egg.x = 1000;
-                chicken.x = 50;
             }
 
             if (points > 250 && still >= 2000 && graphicLoreStep < 3) {
@@ -81,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if ((chicken.x > 480 || chicken.x < -50) && graphicLoreStep == 3) {
                 graphicLore = true;
                 graphicLoreStep = 4;
+                chicken.x = 50;
                 setCookie('graphicLoreStep', graphicLoreStep);
             }
 
