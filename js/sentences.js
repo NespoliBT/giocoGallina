@@ -104,4 +104,7 @@ export const sentences = [
     "Più cartoni meno meloni.",
     "Rotola come un uovo verso il limite.",
     "Lotta dura con la verdura.",
+    "Il nuoto è uno sport completo.",
+    "Non ci sono più le mezze stagioni.",
+    "Si stava meglio quando si stava peggio."
 ];
