@@ -106,5 +106,5 @@ export const sentences = [
     "Lotta dura con la verdura.",
     "Il nuoto è uno sport completo.",
     "Non ci sono più le mezze stagioni.",
-    "Si stava meglio quando si stava peggio."
+    "Si stava meglio quando si stava peggio.",
 ];

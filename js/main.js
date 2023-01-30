@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let graphicLore = false;
     let graphicLoreStep = getCookie("graphicLoreStep") || 0;
 
-    const chicken = new Chicken(ctx, 0, 250, 1);
-    const egg = new Egg(ctx, 400, 275);
+    const chicken = new Chicken(ctx, 0, 200, 1);
+    const egg = new Egg(ctx, 400, 225);
 
     let selectedSentence = getSentence();
     let selectedLore = null;
@@ -34,13 +34,13 @@ document.addEventListener('DOMContentLoaded', function () {
     bubble.src = "assets/bubble.png";
 
     function drawBackground() {
-        ctx.drawImage(background, 0, 0, 480, 320);
+        ctx.drawImage(background, 0, 0, 480, 270);
         ctx.fillStyle = "#456a2a";
         ctx.fillRect(0, 480, 480, 700);
     }
 
     function drawBubble() {
-        ctx.drawImage(bubble, 0, 320, 480, 214);
+        ctx.drawImage(bubble, 0, 270, 480, 214);
     }
 
     function draw() {
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
             egg.draw();
 
             drawBubble();
-            drawText(ctx, selectedSentence, 50, 415, 400, 24, loreActive ? "blue" : "black");
+            drawText(ctx, selectedSentence, 50, 365, 400, 24, loreActive ? "blue" : "black");
             drawText(ctx, `Punteggio: ${points}`, 16, 38, 700, 32);
 
             if (graphicLoreStep == 4) {
